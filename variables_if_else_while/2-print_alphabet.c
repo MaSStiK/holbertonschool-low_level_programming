@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 /**
  * main - Entry point
@@ -11,7 +10,7 @@ int main(void)
 	size_t i;
 	char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-	for (i = 0; i < strlen(alphabet); i++)
+	for (i = 0; i < 26; i++)
 		putchar(alphabet[i]);
 	putchar('\n');
 	return (0);
