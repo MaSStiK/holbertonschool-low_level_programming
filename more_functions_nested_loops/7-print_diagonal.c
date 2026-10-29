@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_diagonal - Prints a line of underscores
- * @n: Number of underscores to print
+ * print_diagonal - Prints a diagonal line
+ * @n: Number of backslashes to print
  */
 void print_diagonal(int n)
 {
