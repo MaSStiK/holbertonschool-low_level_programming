@@ -8,6 +8,6 @@ gcc baseline_loop.c -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long-long -o
 
 ## Performance Summary
 
-1. Execution time: 0.080963 seconds
-2. Execution time: 0.075908 seconds
-3. Execution time: 0.081705 seconds
+- Run 1: `Execution time: 0.080963 seconds`
+- Run 2: `Execution time: 0.075908 seconds`
+- Run 3: `Execution time: 0.081705 seconds`
