@@ -31,4 +31,6 @@ gcc comparison_algorithms.c -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long
 
 ## Conclusion
 
-Implementation A is ~12000 times slower than B
+The Naive algorithm average time is 0.603652.
+The Single-pass algorithm average time is 0.000048.
+The Naive algorithm is ~12500 times slower than the Single-pass algorithm.
