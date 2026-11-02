@@ -55,23 +55,23 @@ gcc instrumentation_lab.c -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long-l
 
 ### Run 1
 
-> TOTAL seconds: 0.000353
-> BUILD_DATA seconds: 0.000149
-> PROCESS seconds: 0.000131
+> TOTAL seconds: 0.000353  
+> BUILD_DATA seconds: 0.000149  
+> PROCESS seconds: 0.000131  
 > REDUCE seconds: 0.000072
 
 ### Run 2
 
-> TOTAL seconds: 0.000312
-> BUILD_DATA seconds: 0.000126
-> PROCESS seconds: 0.000127
+> TOTAL seconds: 0.000312  
+> BUILD_DATA seconds: 0.000126  
+> PROCESS seconds: 0.000127  
 > REDUCE seconds: 0.000058
 
 ### Run 3
 
-> TOTAL seconds: 0.000377
-> BUILD_DATA seconds: 0.000161
-> PROCESS seconds: 0.000140
+> TOTAL seconds: 0.000377  
+> BUILD_DATA seconds: 0.000161  
+> PROCESS seconds: 0.000140  
 > REDUCE seconds: 0.000074
 
 ## Measurement Methodology
