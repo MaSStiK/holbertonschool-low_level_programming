@@ -6,6 +6,7 @@ A repository for learning low-level programming in C, including compilation, bas
 
 ```text
 holbertonschool-low_level_programming/
+├── benchmarking/
 ├── functions_nested_loops/
 ├── hello_world/
 ├── intro_debugging/
@@ -16,6 +17,7 @@ holbertonschool-low_level_programming/
 
 ## Directories
 
+- **`benchmarking/`** - Measuring C program execution time, comparing algorithm performance, profiling individual processing phases, and analyzing runtime efficiency.
 - **`functions_nested_loops/`** - Function declarations and definitions, nested loops, character manipulation, arithmetic operations, and custom header files.
 - **`hello_world/`** - Introduction to C programming, GCC compilation, preprocessing, basic input/output, and coding style.
 - **`intro_debugging/`** - Debugging C programs using Python Tutor, tracing execution, inspecting variables, and fixing logic errors in loops and functions.
