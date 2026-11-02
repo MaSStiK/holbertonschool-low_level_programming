@@ -1,6 +1,6 @@
 # Benchmarking: Green Efficiency Analysis
 
-In this document, I will compare the performance of two functions written in C: the Naive Algorithm and the Single-Pass Algorithm.
+In this document, I will compare the performance of two functions written in C: the **Naive Algorithm** and the **Single-Pass Algorithm**.
 
 The `comparison_algorithms.c` file was compiled using the following command:
 
@@ -40,10 +40,10 @@ gcc comparison_algorithms.c -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long
 
 ## Observed Performance Differences
 
-I found that the Naive algorithm runs in an average of `0.603652 seconds`, while the Single-pass algorithm runs in an average of `0.000048 seconds`.  
-From this, we can see that the Naive algorithm is 12,500 times slower than the Single-pass algorithm.  
-The significant difference in execution time stems from how the algorithms work: the Naive algorithm uses nested loops, while the Single-pass algorithm iterates through the array only once.  
-There is also a difference in what the functions return. The Naive algorithm returns `result = 625025000`, while the Single-pass algorithm returns `result = 25000`.
+I found that the **Naive algorithm** runs in an average of `0.603652 seconds`, while the **Single-pass algorithm** runs in an average of `0.000048 seconds`.  
+From this, we can see that the **Naive algorithm** is **12,500** times slower than the **Single-pass algorithm**.  
+The significant difference in execution time stems from how the algorithms work: the **Naive algorithm** uses nested loops, while the **Single-pass algorithm** iterates through the array only once.  
+There is also a difference in what the functions return. The **Naive algorithm** returns `result: 625025000`, while the **Single-pass algorithm** returns `result: 25000`.
 
 ## Relation Between Runtime and Energy Consumption
 
@@ -51,13 +51,13 @@ There is also a difference in what the functions return. The Naive algorithm ret
 - Inefficient algorithms cause the processor to perform more operations
 - Optimizing algorithms can reduce energy consumption
 
-> It is important to note that the script does not measure energy consumption, so it is not possible to say exactly how many times less energy the single-pass algorithm uses compared to the naive algorithm.
+> It is important to note that the script does not measure energy consumption, so it is not possible to say exactly how many times less energy the **Single-pass algorithm** uses compared to the **Naive algorithm**.
 
 ## Limitations of the Experiment
 
 - Each algorithm was measured only 3 times; to calculate accurate averages, many more measurements are needed.
 - Even with the same programs running, the computer’s load could change over time, which could have affected the calculation results.
-- Each algorithm returns a different `result`, so the comparison is not entirely accurate, since the Naive algorithm uses an incorrect approach to solving the problem and yields a `result` that is many times higher than expected, unlike the Single-pass algorithm, which worked exactly as intended.
+- Each algorithm returns a different `result`, so the comparison is not entirely accurate, since the **Naive algorithm** uses an incorrect approach to solving the problem and yields a `result` that is many times higher than expected, unlike the **Single-pass algorithm**, which worked exactly as intended.
 
 ## Practical Engineering Takeaway
 
