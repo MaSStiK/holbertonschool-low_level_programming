@@ -9,7 +9,7 @@
 int _atoi(char *s)
 {
 	int i;
-	int sign_count = 0;
+	int sign = 1;
 	int number = 0;
 	int is_number_started = 0;
 
@@ -26,13 +26,10 @@ int _atoi(char *s)
 				break;
 		}
 
-		if (s[i] == '+')
-			sign_count++;
 		if (s[i] == '-')
-			sign_count--;
+			sign *= -1;
 	}
 
-	if (sign_count < 0)
-		number *= -1;
+	number *= sign;
 	return (number);
 }
