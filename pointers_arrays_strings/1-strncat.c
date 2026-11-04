@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _strcat - Concatenates two strings
+ * _strncat - Concatenates up to n characters from src to dest
  * @dest: Destination string
  * @src: Source string
+ * @n: Maximum number of characters to append
  *
  * Return: Pointer to dest
  */
