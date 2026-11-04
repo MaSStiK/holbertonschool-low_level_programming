@@ -1,11 +1,9 @@
 #include "main.h"
 
 /**
- * _strcmp - Compares two strings
- * @s1: First string
- * @s2: Second string
- *
- * Return: Difference between the first differing characters
+ * reverse_array - Reverses an array of integers
+ * @a: Array of integers
+ * @n: Number of elements
  */
 void reverse_array(int *a, int n)
 {
@@ -15,7 +13,7 @@ void reverse_array(int *a, int n)
 	for (i = 0; i < n / 2; i++)
 	{
 		temp = a[i];
-		a[i] = a[n - i];
-		a[n - i] = temp;
+		a[i] = a[n - 1 - i];
+		a[n - 1 - i] = temp;
 	}
 }
