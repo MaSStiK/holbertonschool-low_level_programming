@@ -30,25 +30,27 @@ int main(void)
 {
 	char user_input[11];
 	char is_exit = 0;
-	int a, b, result;
+	int menu, a, b, result;
 
 	print_menu();
 	while (!is_exit)
 	{
 		read_input(user_input, "Choice: ");
-		if (user_input[0] < '0' || user_input[0] > '4')
+		menu = _atoi(user_input);
+
+		if (user_input[0] < '0' || user_input[0] > '4' || menu > 4)
 		{
 			printf("Invalid choice\n");
 			continue;
 		}
 
-		if (user_input[0] == '0')
+		if (menu == 0)
 		{
 			printf("Bye!\n");
 			is_exit = 1;
 		}
 
-		if (user_input[0] == '1')
+		if (menu == 1)
 		{
 			printf("Addition\n");
 			read_input(user_input, "A: ");
