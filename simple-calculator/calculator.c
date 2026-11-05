@@ -1,5 +1,54 @@
 #include <stdio.h>
 
+int _atoi(char *s);
+void print_menu(void);
+void read_input(char *user_input, char *text);
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	char user_input[11];
+	char is_exit = 0;
+	int menu, a, b, result;
+
+	print_menu();
+	while (!is_exit)
+	{
+		read_input(user_input, "Choice: ");
+		menu = _atoi(user_input);
+
+		if (user_input[0] < '0' || user_input[0] > '4' || menu > 4)
+		{
+			printf("Invalid choice\n");
+			continue;
+		}
+
+		if (menu == 0)
+		{
+			printf("Bye!\n");
+			is_exit = 1;
+		}
+
+		if (menu == 1)
+		{
+			printf("Addition\n");
+			read_input(user_input, "A: ");
+			a = _atoi(user_input);
+			read_input(user_input, "B: ");
+			b = _atoi(user_input);
+			result = a + b;
+			printf("Result: %d\n", result);
+		}
+	}
+
+	return (0);
+}
+
+
 /**
  * _atoi - Converts a string to an integer
  * @s: String to convert
@@ -51,48 +100,4 @@ void read_input(char *user_input, char *text)
 {
 	printf("%s", text);
 	scanf("%s", user_input);
-}
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-	char user_input[11];
-	char is_exit = 0;
-	int menu, a, b, result;
-
-	print_menu();
-	while (!is_exit)
-	{
-		read_input(user_input, "Choice: ");
-		menu = _atoi(user_input);
-
-		if (user_input[0] < '0' || user_input[0] > '4' || menu > 4)
-		{
-			printf("Invalid choice\n");
-			continue;
-		}
-
-		if (menu == 0)
-		{
-			printf("Bye!\n");
-			is_exit = 1;
-		}
-
-		if (menu == 1)
-		{
-			printf("Addition\n");
-			read_input(user_input, "A: ");
-			a = _atoi(user_input);
-			read_input(user_input, "B: ");
-			b = _atoi(user_input);
-			result = a + b;
-			printf("Result: %d\n", result);
-		}
-	}
-
-	return (0);
 }
