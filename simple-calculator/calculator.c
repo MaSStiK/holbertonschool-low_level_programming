@@ -43,6 +43,17 @@ int main(void)
 			result = a + b;
 			printf("Result: %d\n", result);
 		}
+
+		if (menu == 2)
+		{
+			printf("Subtraction\n");
+			read_input(user_input, "A: ");
+			a = _atoi(user_input);
+			read_input(user_input, "B: ");
+			b = _atoi(user_input);
+			result = a - b;
+			printf("Result: %d\n", result);
+		}
 	}
 
 	return (0);
