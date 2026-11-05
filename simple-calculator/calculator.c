@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void print_menu()
+void print_menu(void)
 {
 	printf("Simple Calculator\n1) Add\n2) Subtract\n3) Multiply\n4) Divide\n0) Quit\n");
 }
@@ -21,10 +21,20 @@ int main(void)
 	{
 		read_input(user_input, "Choice: ");
 
-		if (user_input[0] == '0')
+		switch (user_input[0])
 		{
-			printf("Quit\n");
-			is_exit = 1;
+			case '0':
+				printf("Bye!\n");
+				is_exit = 1;
+				break;
+
+			case '1':
+				printf("1 add\n");
+				break;
+
+			default:
+				printf("Invalid choice\n");
+				break;
 		}
 	}
 
