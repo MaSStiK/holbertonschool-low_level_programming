@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * _strcat - Concatenates two strings
- * @dest: Destination string
- * @src: Source string
+ * _memset - Fills memory with a constant byte
+ * @s: Pointer to the memory area
+ * @b: Byte to fill the memory with
+ * @n: Number of bytes to fill
  *
- * Return: Pointer to dest
+ * Return: Pointer to s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
