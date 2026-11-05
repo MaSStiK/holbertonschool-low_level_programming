@@ -3,5 +3,5 @@
 ## Compilation
 
 ```bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 calculator.c -o calculator
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 calculator.c utils.c -o calculator
 ```
