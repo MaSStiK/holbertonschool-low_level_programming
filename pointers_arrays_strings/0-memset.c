@@ -7,21 +7,12 @@
  *
  * Return: Pointer to dest
  */
-char *_strcat(char *dest, char *src)
+char *_memset(char *s, char b, unsigned int n)
 {
-	int i = 0;
-	int j = 0;
+	unsigned int i;
 
-	while (dest[i] != '\0')
-		i++;
+	for (i = 0; i < n; i++)
+		s[i] = b;
 
-	while (src[j] != '\0')
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-
-	dest[i + j] = '\0';
-
-	return (dest);
+	return (s);
 }
