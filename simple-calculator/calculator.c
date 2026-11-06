@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-int _atoi(char *s);
 void print_menu(void);
 void read_input(char *user_input, char *text);
+int _atoi(char *s);
+int get_number(char *input_text, char *error_text);
 
 /**
  * main - Entry point
@@ -11,107 +12,63 @@ void read_input(char *user_input, char *text);
  */
 int main(void)
 {
-	char user_input[11];
-	char is_exit = 0;
-	int menu, a, b;
+	int option, a, b;
+	int is_exit = 0;
 
 	print_menu();
 	while (!is_exit)
 	{
-		read_input(user_input, "Choice: ");
-		menu = _atoi(user_input);
+		option = get_number("Choice:", "Invalid choice\n");
 
-		if (user_input[0] < '0' || user_input[0] > '4' || menu > 4)
+		if (option > 4 || option < 0)
 		{
 			printf("Invalid choice\n");
 			continue;
 		}
 
-		if (menu == 0)
+		if (option == 0)
 		{
 			printf("Bye!\n");
 			is_exit = 1;
 		}
 
-		if (menu == 1)
+		if (option == 1)
 		{
 			printf("-----\nAddition\n");
-			read_input(user_input, "A: ");
-			a = _atoi(user_input);
-			read_input(user_input, "B: ");
-			b = _atoi(user_input);
+			a = get_number("A:", "Invalid number\n");
+			b = get_number("B:", "Invalid number\n");
 			printf("Result: %d\n-----\n", a + b);
 		}
 
-		if (menu == 2)
+		if (option == 2)
 		{
 			printf("-----\nSubtraction\n");
-			read_input(user_input, "A: ");
-			a = _atoi(user_input);
-			read_input(user_input, "B: ");
-			b = _atoi(user_input);
+			a = get_number("A:", "Invalid number\n");
+			b = get_number("B:", "Invalid number\n");
 			printf("Result: %d\n-----\n", a - b);
 		}
 
-		if (menu == 3)
+		if (option == 3)
 		{
 			printf("-----\nMultiplication\n");
-			read_input(user_input, "A: ");
-			a = _atoi(user_input);
-			read_input(user_input, "B: ");
-			b = _atoi(user_input);
+			a = get_number("A:", "Invalid number\n");
+			b = get_number("B:", "Invalid number\n");
 			printf("Result: %d\n-----\n", a * b);
 		}
 
-		if (menu == 4)
+		if (option == 4)
 		{
 			printf("-----\nDivision\n");
-			read_input(user_input, "A: ");
-			a = _atoi(user_input);
-			read_input(user_input, "B: ");
-			b = _atoi(user_input);
+			a = get_number("A:", "Invalid number\n");
+			b = get_number("B:", "Invalid number\n");
 			if (b == 0)
 				printf("Error: division by zero\n-----\n");
 			else
-				printf("Result: %g\n-----\n", (float)a / b);
+				printf("Result: %g\n-----\n", (double)a / b);
 		}
 	}
 
 	return (0);
-}
-
-
-/**
- * _atoi - Converts a string to an integer
- * @s: String to convert
- *
- * Return: Converted integer
- */
-int _atoi(char *s)
-{
-	int i;
-	int sign = 1;
-	unsigned int number = 0;
-	int is_started = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			is_started = 1;
-			number = number * 10 + (s[i] - '0');
-		}
-		else
-		{
-			if (is_started)
-				break;
-		}
-
-		if (s[i] == '-')
-			sign = -1;
-	}
-
-	return ((int)number * sign);
 }
 
 /**
@@ -126,10 +83,77 @@ void print_menu(void)
 /**
  * read_input - Reads user input
  * @user_input: Char array to store input
- * @text: Text to display
+ * @text: Text to print
  */
 void read_input(char *user_input, char *text)
 {
-	printf("%s", text);
-	scanf("%s", user_input);
+	printf("%s ", text);
+	scanf("%10s", user_input);
+}
+
+/**
+ * _atoi - Converts a string to an integer
+ * @str: String to convert
+ *
+ * Return: Converted integer
+ */
+int _atoi(char *str)
+{
+	int i;
+	int sign = 1;
+	unsigned int number = 0;
+	int is_started = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			is_started = 1;
+			number = number * 10 + (str[i] - '0');
+		}
+		else
+		{
+			if (is_started)
+				break;
+		}
+
+		if (str[i] == '-')
+			sign = -1;
+	}
+
+	return ((int)number * sign);
+}
+
+/**
+ * get_number - Reads and validates a number from user input
+ * @input_text: Prompt to print before reading input
+ * @error_text: Error message to print for invalid input
+ *
+ * Return: Validated integer
+ */
+int get_number(char *input_text, char *error_text)
+{
+	char user_input[11];
+	int i, number;
+	int should_finish = 0;
+
+	while (!should_finish)
+	{
+		should_finish = 1;
+
+		read_input(user_input, input_text);
+
+		for (i = 0; user_input[i] != '\0'; i++)
+		{
+			if ((user_input[i] < '0' || user_input[i] > '9') && user_input[i] != '-')
+			{
+				printf("%s", error_text);
+				should_finish = 0;
+				break;
+			}
+		}
+	}
+
+	number = _atoi(user_input);
+	return (number);
 }

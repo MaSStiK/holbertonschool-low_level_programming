@@ -32,7 +32,7 @@ Choice:
 > B: 11
 > Result: 256
 
-_The function will return the result as an **int**._
+_The function will print the result as an **int**._
 
 ### Subtraction
 
@@ -40,7 +40,7 @@ _The function will return the result as an **int**._
 > B: 125
 > Result: -25
 
-_The function will return the result as an **int**._
+_The function will print the result as an **int**._
 
 ### Multiplication
 
@@ -48,7 +48,7 @@ _The function will return the result as an **int**._
 > B: 40
 > Result: 280
 
-_The function will return the result as an **int**._
+_The function will print the result as an **int**._
 
 ### Division
 
@@ -56,6 +56,6 @@ _The function will return the result as an **int**._
 > B: 3
 > Result: 3.33
 
-_The function will return the result as a **float**, truncating any trailing zeros._
+_The function will print the result as a **double**, truncating any trailing zeros._
 
 _If the user enters 0 as the second number, the program will display `Error: division by zero` as an error message._
