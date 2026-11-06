@@ -73,7 +73,7 @@ int main(void)
 			if (b == 0)
 				printf("Error: division by zero\n-----\n");
 			else
-				printf("Result: %.3g\n-----\n", (float)a / b);
+				printf("Result: %g\n-----\n", (float)a / b);
 		}
 	}
 
