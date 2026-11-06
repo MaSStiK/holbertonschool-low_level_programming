@@ -35,32 +35,45 @@ int main(void)
 
 		if (menu == 1)
 		{
-			printf("Addition\n");
+			printf("-----\nAddition\n");
 			read_input(user_input, "A: ");
 			a = _atoi(user_input);
 			read_input(user_input, "B: ");
 			b = _atoi(user_input);
-			printf("Result: %d\n", a + b);
+			printf("Result: %d\n-----\n", a + b);
 		}
 
 		if (menu == 2)
 		{
-			printf("Subtraction\n");
+			printf("-----\nSubtraction\n");
 			read_input(user_input, "A: ");
 			a = _atoi(user_input);
 			read_input(user_input, "B: ");
 			b = _atoi(user_input);
-			printf("Result: %d\n", a - b);
+			printf("Result: %d\n-----\n", a - b);
 		}
 
 		if (menu == 3)
 		{
-			printf("Multiplication\n");
+			printf("-----\nMultiplication\n");
 			read_input(user_input, "A: ");
 			a = _atoi(user_input);
 			read_input(user_input, "B: ");
 			b = _atoi(user_input);
-			printf("Result: %d\n", a * b);
+			printf("Result: %d\n-----\n", a * b);
+		}
+
+		if (menu == 4)
+		{
+			printf("-----\nDivision\n");
+			read_input(user_input, "A: ");
+			a = _atoi(user_input);
+			read_input(user_input, "B: ");
+			b = _atoi(user_input);
+			if (b == 0)
+				printf("Error: division by zero\n-----\n");
+			else
+				printf("Result: %.3g\n-----\n", (float)a / b);
 		}
 	}
 
