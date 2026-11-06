@@ -13,7 +13,7 @@ int main(void)
 {
 	char user_input[11];
 	char is_exit = 0;
-	int menu, a, b, result;
+	int menu, a, b;
 
 	print_menu();
 	while (!is_exit)
@@ -40,8 +40,7 @@ int main(void)
 			a = _atoi(user_input);
 			read_input(user_input, "B: ");
 			b = _atoi(user_input);
-			result = a + b;
-			printf("Result: %d\n", result);
+			printf("Result: %d\n", a + b);
 		}
 
 		if (menu == 2)
@@ -51,8 +50,17 @@ int main(void)
 			a = _atoi(user_input);
 			read_input(user_input, "B: ");
 			b = _atoi(user_input);
-			result = a - b;
-			printf("Result: %d\n", result);
+			printf("Result: %d\n", a - b);
+		}
+
+		if (menu == 3)
+		{
+			printf("Multiplication\n");
+			read_input(user_input, "A: ");
+			a = _atoi(user_input);
+			read_input(user_input, "B: ");
+			b = _atoi(user_input);
+			printf("Result: %d\n", a * b);
 		}
 	}
 
