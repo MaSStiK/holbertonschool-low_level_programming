@@ -15,9 +15,11 @@ int main(void)
 	int option, a, b;
 	int is_exit = 0;
 
-	print_menu();
+	printf("===Simple Calculator===\n");
+
 	while (!is_exit)
 	{
+		print_menu();
 		option = get_number("Choice:", "Invalid choice\n");
 
 		if (option > 4 || option < 0)
@@ -76,7 +78,7 @@ int main(void)
  */
 void print_menu(void)
 {
-	printf("Simple Calculator\n1) Add\n2) Subtract\n");
+	printf("1) Add\n2) Subtract\n");
 	printf("3) Multiply\n4) Divide\n0) Quit\n"); /* Anti Betty thing */
 }
 
