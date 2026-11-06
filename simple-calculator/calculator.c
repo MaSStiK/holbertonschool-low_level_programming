@@ -133,8 +133,8 @@ int _atoi(char *str)
  */
 int get_number(char *input_text, char *error_text)
 {
+	int i;
 	char user_input[11];
-	int i, number;
 	int should_finish = 0;
 
 	while (!should_finish)
@@ -143,9 +143,16 @@ int get_number(char *input_text, char *error_text)
 
 		read_input(user_input, input_text);
 
-		for (i = 0; user_input[i] != '\0'; i++)
+		if ((user_input[0] < '0' || user_input[0] > '9') && user_input[0] != '-')
 		{
-			if ((user_input[i] < '0' || user_input[i] > '9') && user_input[i] != '-')
+			printf("%s", error_text);
+			should_finish = 0;
+			continue;
+		}
+
+		for (i = 1; user_input[i] != '\0'; i++)
+		{
+			if (user_input[i] < '0' || user_input[i] > '9')
 			{
 				printf("%s", error_text);
 				should_finish = 0;
@@ -154,6 +161,5 @@ int get_number(char *input_text, char *error_text)
 		}
 	}
 
-	number = _atoi(user_input);
-	return (number);
+	return (_atoi(user_input));
 }
