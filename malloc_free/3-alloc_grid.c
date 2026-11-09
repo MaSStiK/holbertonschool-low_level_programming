@@ -2,24 +2,24 @@
 #include "main.h"
 
 /**
- * create_array - Creates an array filled with a specific character
- * @size: Number of elements in the array
- * @c: Character to fill the array with
+ * alloc_grid - Allocates a two-dimensional array of integers
+ * @width: Number of columns
+ * @height: Number of rows
  *
- * Return: Pointer to the array, or NULL on failure
+ * Return: Pointer to the grid, or NULL on failure
  */
 int **alloc_grid(int width, int height)
 {
 	int **grid;
 	int i;
 
-	grid = malloc(sizeof(int) * height);
+	grid = calloc(height, sizeof(int));
 
 	if (grid == NULL)
 		return (NULL);
 
 	for (i = 0; i < height; i++)
-		grid[i] = malloc(sizeof(int) * width);
+		grid[i] = calloc(width, sizeof(int));
 
 	return (grid);
 }
