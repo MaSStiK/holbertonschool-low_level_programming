@@ -2,12 +2,11 @@
 #include "main.h"
 
 /**
- * _memset - Fills memory with a constant byte
- * @s: Pointer to the memory area
- * @b: Byte to fill the memory with
- * @n: Number of bytes to fill
+ * create_array - Creates an array filled with a specific character
+ * @size: Number of elements in the array
+ * @c: Character to fill the array with
  *
- * Return: Pointer to s
+ * Return: Pointer to the array, or NULL on failure
  */
 char *create_array(unsigned int size, char c)
 {
@@ -15,9 +14,12 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 
 	if (size == 0)
-		return ('\0');
+		return (NULL);
 
-	p = (char *)malloc(sizeof(char) * size);
+	p = malloc(sizeof(char) * size);
+
+	if (p == NULL)
+		return (NULL);
 
 	for (i = 0; i < size; i++)
 		p[i] = c;
