@@ -10,6 +10,7 @@ holbertonschool-low_level_programming/
 ├── functions_nested_loops/
 ├── hello_world/
 ├── intro_debugging/
+├── malloc_free/
 ├── more_functions_nested_loops/
 ├── pointers_arrays_strings_1/
 ├── pointers_arrays_strings_2/
@@ -25,6 +26,7 @@ holbertonschool-low_level_programming/
 - **`functions_nested_loops/`** - Function declarations and definitions, nested loops, character manipulation, arithmetic operations, and custom header files.
 - **`hello_world/`** - Introduction to C programming, GCC compilation, preprocessing, basic input/output, and coding style.
 - **`intro_debugging/`** - Debugging C programs using Python Tutor, tracing execution, inspecting variables, and fixing logic errors in loops and functions.
+- **`malloc_free/`** - Dynamic memory allocation using malloc and free, string manipulation, two-dimensional arrays, memory management, and preventing memory leaks.
 - **`more_functions_nested_loops/`** - Advanced functions and nested loops, character validation, arithmetic operations, number sequences, and printing geometric patterns.
 - **`pointers_arrays_strings_1/`** - Working with pointers, arrays, strings, memory addresses, string manipulation, and integer conversion.
 - **`pointers_arrays_strings_2/`** - String concatenation, copying, comparison, character encoding, capitalization, and array manipulation.
