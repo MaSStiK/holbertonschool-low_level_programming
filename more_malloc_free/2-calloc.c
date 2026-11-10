@@ -2,16 +2,16 @@
 #include "main.h"
 
 /**
- * string_nconcat - Concatenates two strings into newly allocated memory
- * @s1: First string
- * @s2: Second string
- * @n: Maximum number of bytes to copy from s2
+ * _calloc - Allocates memory for an array and initializes it to zero
+ * @nmemb: Number of elements
+ * @size: Size of each element in bytes
  *
- * Return: Pointer to the new string, or NULL on failure
+ * Return: Pointer to the allocated memory, or NULL on failure
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -21,7 +21,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (p == NULL)
 		return (NULL);
 
-	free(p);
+	for (i = 0; i < size; i++)
+		p[i] = 0;
 
 	return (p);
 }
