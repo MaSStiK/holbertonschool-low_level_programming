@@ -17,6 +17,7 @@ holbertonschool-low_level_programming/
 ├── pointers_arrays_strings_2/
 ├── pointers_arrays_strings_3/
 ├── simple-calculator/
+├── structures_typedef/
 ├── variables_if_else_while/
 └── README.md
 ```
@@ -34,6 +35,7 @@ holbertonschool-low_level_programming/
 - **`pointers_arrays_strings_2/`** - String concatenation, copying, comparison, character encoding, capitalization, and array manipulation.
 - **`pointers_arrays_strings_3/`** - Memory manipulation, character and substring searching, multidimensional arrays, matrix diagonals, and double pointers.
 - **`simple-calculator/`** - Building a terminal-based interactive calculator in C, including menu navigation, arithmetic operations, user input handling, and division-by-zero validation.
+- **`structures_typedef/`** - Defining structures and custom types with typedef, initializing and printing structure members, dynamically allocating structures, and managing memory.
 - **`variables_if_else_while/`** - Variables, conditional statements, relational and logical operators, and loops using if, else, while, and do-while.
 
 Each directory contains C programming exercises for Holberton School tasks and its own `README.md` with descriptions of the files.
