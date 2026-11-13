@@ -12,6 +12,7 @@ holbertonschool-low_level_programming/
 ├── intro_debugging/
 ├── malloc_free/
 ├── more_functions_nested_loops/
+├── more_malloc_free/
 ├── pointers_arrays_strings_1/
 ├── pointers_arrays_strings_2/
 ├── pointers_arrays_strings_3/
@@ -28,6 +29,7 @@ holbertonschool-low_level_programming/
 - **`intro_debugging/`** - Debugging C programs using Python Tutor, tracing execution, inspecting variables, and fixing logic errors in loops and functions.
 - **`malloc_free/`** - Dynamic memory allocation using malloc and free, string manipulation, two-dimensional arrays, memory management, and preventing memory leaks.
 - **`more_functions_nested_loops/`** - Advanced functions and nested loops, character validation, arithmetic operations, number sequences, and printing geometric patterns.
+- **`more_malloc_free/`** - Advanced dynamic memory allocation, string concatenation, zero-initialized arrays, memory reallocation, and error handling.
 - **`pointers_arrays_strings_1/`** - Working with pointers, arrays, strings, memory addresses, string manipulation, and integer conversion.
 - **`pointers_arrays_strings_2/`** - String concatenation, copying, comparison, character encoding, capitalization, and array manipulation.
 - **`pointers_arrays_strings_3/`** - Memory manipulation, character and substring searching, multidimensional arrays, matrix diagonals, and double pointers.
