@@ -4,7 +4,7 @@
 #include <string.h>
 #include "3-calc.h"
 
- /**
+/**
  * main - Entry point
  * @argc: Number of command-line arguments
  * @argv: Array of command-line arguments
