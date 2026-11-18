@@ -10,16 +10,16 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
-	char *str;
+	char *current;
 	va_list args;
 
 	va_start(args, n);
 
 	for (i = 0; i < n; i++)
 	{
-		str = va_arg(args, char *);
-		if (str != NULL)
-			printf("%s", str);
+		current = va_arg(args, char *);
+		if (current != NULL)
+			printf("%s", current);
 		else
 			printf("(nil)");
 
