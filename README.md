@@ -19,7 +19,8 @@ holbertonschool-low_level_programming/
 ├── pointers_arrays_strings_3/
 ├── simple-calculator/
 ├── structures_typedef/
-└── variables_if_else_while/
+├── variables_if_else_while/
+└── variadic_functions/
 ```
 
 ## Directories
@@ -38,5 +39,6 @@ holbertonschool-low_level_programming/
 - **`simple-calculator/`** - Building a terminal-based interactive calculator in C, including menu navigation, arithmetic operations, user input handling, and division-by-zero validation.
 - **`structures_typedef/`** - Defining structures and custom types with typedef, initializing and printing structure members, dynamically allocating structures, and managing memory.
 - **`variables_if_else_while/`** - Variables, conditional statements, relational and logical operators, and loops using if, else, while, and do-while.
+- **`variadic_functions/`** - Working with variadic functions using stdarg.h, handling variable argument lists, processing different data types, and formatting output with custom separators.
 
 Each directory contains C programming exercises for Holberton School tasks and its own `README.md` with descriptions of the files.
