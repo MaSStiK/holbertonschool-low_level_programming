@@ -3,6 +3,8 @@
 
 /**
  * main - Entry point
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line argument strings
  *
  * Return: Always 0 (Success)
  */
