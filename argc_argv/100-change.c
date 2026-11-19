@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		printf("0\n");
 		return (0);
 	}
-	
+
 	change(&result, &cents, 25);
 	change(&result, &cents, 10);
 	change(&result, &cents, 5);
