@@ -1,25 +1,8 @@
 # Valgrind Analysis
 
-Valgrind Memcheck 3.18.1 was used to check `stack_example`, `aliasing_example`, and `heap_example`. The findings below were cross-checked against the C code and the memory maps.
+Valgrind Memcheck 3.18.1 was used to check `aliasing_example` and `heap_example`. The findings below were cross-checked against the C code and the memory maps.
 
-## 1. Stack Example (stack_example.c)
-
-### Results
-
-- **0 errors; no leaks.** Valgrind reports 1 allocation, 1 free, and 4,096 bytes allocated in total.
-- No invalid reads/writes or uninitialized-value warnings were reported.
-
-### Explanation
-
-The recursive `walk_stack()` calls create separate stack frames. Each `dump_frame()` call uses local variables that cease to exist when it returns. The program does not access these objects after their lifetime ends. No explicit heap allocation occurs in this program's source code.
-
-### AI Error / Omission
-
-**Omission:** The AI described the heap as empty in `stack_example.c`, overlooking possible runtime allocations. Valgrind reported 1 allocation and 1 free (4,096 bytes).
-
-**Correction:** The program makes no explicit heap allocations, but the C runtime may allocate memory internally. Valgrind confirms that all allocated memory was freed, so no leak occurred.
-
-## 2. Aliasing Example (aliasing_example.c)
+## 1. Aliasing Example (aliasing_example.c)
 
 ### Reported errors
 
@@ -44,7 +27,13 @@ b --+                            b --+
 
 `free(a)` at line 38 ends the array's lifetime, leaving **both pointers dangling**. The three later accesses through `b` are **use-after-free**, which is undefined behavior. Printing `22` or `1234` does not make these operations valid. Valgrind reports no leak because the array was freed.
 
-## 3. Heap Example (heap_example.c)
+### AI Error / Omission
+
+**Omission:** The AI's initial analysis mentioned the invalid read of `b[2]` and the invalid write to `b[3]`, but missed the final read of `b[3]` in `printf()`.
+
+**Correction:** After `free(a)`, all three accesses are use-after-free. Valgrind confirms two invalid reads (lines 42 and 45) and one invalid write (line 44).
+
+## 2. Heap Example (heap_example.c)
 
 ### Results
 
