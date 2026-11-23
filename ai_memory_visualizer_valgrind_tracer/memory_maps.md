@@ -85,3 +85,35 @@ b --+                            b --+         (no valid access)
 **Omission:** The AI's first memory map showed only `main()` variables (`a`, `b`, `n`), leaving out the `make_numbers()` stack frame.
 
 **Correction:** During `make_numbers()`, its stack frame also contains the parameter `n` and locals `i` and `arr`. These objects cease to exist on return, while the heap array remains allocated until `free(a)`.
+
+## 3. Heap Example - Memory Leak (heap_example.c)
+
+### Purpose and execution
+
+`person_new()` allocates two heap blocks per person: a `Person` structure and a separate name string. Its temporary local variables (`i`, `len`, `p`) belong to the function call and cease to exist when it returns.
+
+| Step | Operation | Memory change |
+|---|---|---|
+| 1 | `person_new("Alice", 30)` | Allocates a `Person` and 6 bytes for `"Alice\0"` |
+| 2 | `person_new("Bob", 41)` | Allocates another `Person` and 4 bytes for `"Bob\0"` |
+| 3 | `free(bob->name); free(bob);` | Releases both of Bob's heap blocks |
+| 4 | `person_free_partial(alice)` | Releases Alice's structure but **not** her name string |
+
+### Memory map before cleanup
+
+```text
+STACK (main)                 HEAP
+alice ---------------------> Person {name ------> "Alice\0", age=30}
+bob -----------------------> Person {name ------> "Bob\0",   age=41}
+```
+
+### Lifetime and observed behavior
+
+- The run printed different addresses for the two `Person` structures and their name buffers.
+- Bob's structure and name are both freed correctly.
+- Alice's structure is freed, but the separate 6-byte `"Alice\0"` buffer is not. Its last stored pointer is lost, causing a **memory leak**.
+- The source performs four allocations and three frees on this successful execution path. No Valgrind results were provided, so the leak is identified from the code.
+
+### AI analysis review
+
+The key distinction is that `free(p)` frees only the `Person` structure; it does not automatically free the separately allocated `p->name` buffer. This was verified against the source code.
