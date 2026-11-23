@@ -19,6 +19,8 @@
 
 **Correct:** The unchecked `NULL` return from `allocate_numbers()` causes the invalid write. Checking `nums` before accessing `nums[0]` would prevent this crash.
 
-**Incorrect AI hypothesis:** `malloc()` failed and returned `NULL`. In fact, the `n <= 0` condition returns `NULL` **before `malloc()` is reached**. A stack-overflow explanation is also unsupported by the code and Valgrind's reported address.
+**AI hypothesis (rejected):** The crash might be caused by `malloc()` returning `NULL`.
+
+**Verification:** The code returns `NULL` when `n <= 0`, before calling `malloc()`. Therefore, allocation failure is not the cause of this crash. A stack overflow is also unsupported by the code.
 
 **Suggested fix (not applied):** Add `if (nums == NULL) return 1;` before `nums[0] = 42;`.

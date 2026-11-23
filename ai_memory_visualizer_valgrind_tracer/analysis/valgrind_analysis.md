@@ -6,11 +6,11 @@ Valgrind Memcheck 3.18.1 was used to check `aliasing_example` and `heap_example`
 
 ### Reported errors
 
-| Valgrind warning         | Source          | Memory misuse                          |
-| ------------------------ | --------------- | -------------------------------------- |
-| Invalid read of 4 bytes  | `main`, line 42 | Reading `b[2]` after `free(a)`         |
-| Invalid write of 4 bytes | `main`, line 44 | Writing `b[3] = 1234` after `free(a)`  |
-| Invalid read of 4 bytes  | `main`, line 45 | Reading `b[3]` after the invalid write |
+| Valgrind warning         | Source          | Memory misuse                         |
+| ------------------------ | --------------- | ------------------------------------- |
+| Invalid read of 4 bytes  | `main`, line 42 | Reading `b[2]` after `free(a)`        |
+| Invalid write of 4 bytes | `main`, line 44 | Writing `b[3] = 1234` after `free(a)` |
+| Invalid read of 4 bytes  | `main`, line 45 | Reading `b[3]` after free(a)          |
 
 **Summary:** 3 errors in 3 contexts; **0 leaks** (2 allocations, 2 frees).
 

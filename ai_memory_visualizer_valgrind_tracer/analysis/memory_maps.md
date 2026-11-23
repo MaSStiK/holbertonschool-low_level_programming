@@ -79,6 +79,7 @@ b --+                            b --+         (no valid access)
 - `return arr` ends the local `arr` variable's lifetime, **not** the heap allocation's lifetime.
 - `free(a)` does not set `a` or `b` to `NULL`.
 - The recorded run printed `b[2]=-370166616` after `free(a)` and later printed `b[3]=1234`. Neither result makes those accesses valid; both are undefined behavior.
+- The heap array is owned by main() after make_numbers() returns. main() is responsible for freeing it exactly once. The pointer b is only an alias, not a separate allocation.
 
 ### AI error / omission
 
@@ -112,4 +113,5 @@ bob -----------------------> Person {name ------> "Bob\0",   age=41}
 - The run printed different addresses for the two `Person` structures and their name buffers.
 - Bob's structure and name are both freed correctly.
 - Alice's structure is freed, but the separate 6-byte `"Alice\0"` buffer is not. Its last stored pointer is lost, causing a **memory leak**.
-- The source performs four allocations and three frees on this successful execution path. No Valgrind results were provided, so the leak is identified from the code.
+- The source performs four allocations and three frees, leaving Alice's 6-byte name buffer allocated.
+- `main()` owns both `Person` structures and their name buffers. It must free both allocations for each person. Bob's memory is fully released, but Alice's name buffer is leaked.
