@@ -42,16 +42,16 @@ The stack-frame and pointer-lifetime explanation was checked against the recorde
 
 `make_numbers(5)` allocates one heap array and fills it with `[0, 11, 22, 33, 44]`. In `main()`, `b = a` makes two pointers refer to the same array.
 
-| Step | Operation | Memory change |
-|---|---|---|
-| 1 | `a = NULL; b = NULL; n = 5` | Local variables initialized in `main()` |
-| 2 | `make_numbers(n)` | New stack frame: `n`, `i`, `arr` |
-| 3 | `malloc(5 * sizeof(int))` | Heap array allocated (initially uninitialized) |
-| 4 | Initialization loop | Array becomes `[0, 11, 22, 33, 44]` |
-| 5 | `return arr` | Function frame ends; heap array remains valid; `a` receives its address |
-| 6 | `b = a` | `a` and `b` alias the same allocation |
-| 7 | `free(a)` | Array lifetime ends; both pointers become dangling |
-| 8 | `b[2]`, `b[3] = 1234`, `b[3]` | Invalid read, write, and read (undefined behavior) |
+| Step | Operation                     | Memory change                                                           |
+| ---- | ----------------------------- | ----------------------------------------------------------------------- |
+| 1    | `a = NULL; b = NULL; n = 5`   | Local variables initialized in `main()`                                 |
+| 2    | `make_numbers(n)`             | New stack frame: `n`, `i`, `arr`                                        |
+| 3    | `malloc(5 * sizeof(int))`     | Heap array allocated (initially uninitialized)                          |
+| 4    | Initialization loop           | Array becomes `[0, 11, 22, 33, 44]`                                     |
+| 5    | `return arr`                  | Function frame ends; heap array remains valid; `a` receives its address |
+| 6    | `b = a`                       | `a` and `b` alias the same allocation                                   |
+| 7    | `free(a)`                     | Array lifetime ends; both pointers become dangling                      |
+| 8    | `b[2]`, `b[3] = 1234`, `b[3]` | Invalid read, write, and read (undefined behavior)                      |
 
 ### Memory maps
 
@@ -70,7 +70,7 @@ make_numbers: n=5, i=5,
 Before free(a):                  After free(a):
 STACK         HEAP               STACK         HEAP
 a --+                            a --+
-    +-------> [0,11,22,33,44]       +----X     freed block
+    +-------> [0,11,22,33,44]        +----X     freed block
 b --+                            b --+         (no valid access)
 ```
 
@@ -92,12 +92,12 @@ b --+                            b --+         (no valid access)
 
 `person_new()` allocates two heap blocks per person: a `Person` structure and a separate name string. Its temporary local variables (`i`, `len`, `p`) belong to the function call and cease to exist when it returns.
 
-| Step | Operation | Memory change |
-|---|---|---|
-| 1 | `person_new("Alice", 30)` | Allocates a `Person` and 6 bytes for `"Alice\0"` |
-| 2 | `person_new("Bob", 41)` | Allocates another `Person` and 4 bytes for `"Bob\0"` |
-| 3 | `free(bob->name); free(bob);` | Releases both of Bob's heap blocks |
-| 4 | `person_free_partial(alice)` | Releases Alice's structure but **not** her name string |
+| Step | Operation                     | Memory change                                          |
+| ---- | ----------------------------- | ------------------------------------------------------ |
+| 1    | `person_new("Alice", 30)`     | Allocates a `Person` and 6 bytes for `"Alice\0"`       |
+| 2    | `person_new("Bob", 41)`       | Allocates another `Person` and 4 bytes for `"Bob\0"`   |
+| 3    | `free(bob->name); free(bob);` | Releases both of Bob's heap blocks                     |
+| 4    | `person_free_partial(alice)`  | Releases Alice's structure but **not** her name string |
 
 ### Memory map before cleanup
 
@@ -113,7 +113,3 @@ bob -----------------------> Person {name ------> "Bob\0",   age=41}
 - Bob's structure and name are both freed correctly.
 - Alice's structure is freed, but the separate 6-byte `"Alice\0"` buffer is not. Its last stored pointer is lost, causing a **memory leak**.
 - The source performs four allocations and three frees on this successful execution path. No Valgrind results were provided, so the leak is identified from the code.
-
-### AI analysis review
-
-The key distinction is that `free(p)` frees only the `Person` structure; it does not automatically free the separately allocated `p->name` buffer. This was verified against the source code.
