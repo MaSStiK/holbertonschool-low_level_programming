@@ -2,29 +2,6 @@
 
 A repository for learning low-level programming in C, including compilation, basic syntax, and standard library functions.
 
-## Project Structure
-
-```text
-holbertonschool-low_level_programming/
-├── ai_memory_visualizer_valgrind_trace/
-├── argc_argv/
-├── benchmarking/
-├── function_pointers/
-├── functions_nested_loops/
-├── hello_world/
-├── intro_debugging/
-├── malloc_free/
-├── more_functions_nested_loops/
-├── more_malloc_free/
-├── pointers_arrays_strings_1/
-├── pointers_arrays_strings_2/
-├── pointers_arrays_strings_3/
-├── simple-calculator/
-├── structures_typedef/
-├── variables_if_else_while/
-└── variadic_functions/
-```
-
 ## Directories
 
 - **`ai_memory_visualizer_valgrind_tracer/`** - Visualizing stack and heap memory, analyzing pointer aliasing and object lifetimes, detecting memory errors with Valgrind, and investigating segmentation faults through structured crash reports.
