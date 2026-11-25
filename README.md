@@ -19,6 +19,7 @@ A repository for learning low-level programming in C, including compilation, bas
 - **`pointers_arrays_strings_2/`** - String concatenation, copying, comparison, character encoding, capitalization, and array manipulation.
 - **`pointers_arrays_strings_3/`** - Memory manipulation, character and substring searching, multidimensional arrays, matrix diagonals, and double pointers.
 - **`simple-calculator/`** - Building a terminal-based interactive calculator in C, including menu navigation, arithmetic operations, user input handling, and division-by-zero validation.
+- **`singly_linked_lists/`** - Working with singly linked lists, traversing and counting nodes, adding nodes at the beginning and end, duplicating strings, and freeing dynamically allocated memory.
 - **`structures_typedef/`** - Defining structures and custom types with typedef, initializing and printing structure members, dynamically allocating structures, and managing memory.
 - **`variables_if_else_while/`** - Variables, conditional statements, relational and logical operators, and loops using if, else, while, and do-while.
 - **`variadic_functions/`** - Working with variadic functions using stdarg.h, handling variable argument lists, processing different data types, and formatting output with custom separators.
