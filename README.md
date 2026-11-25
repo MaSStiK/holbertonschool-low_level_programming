@@ -7,6 +7,7 @@ A repository for learning low-level programming in C, including compilation, bas
 - **`ai_memory_visualizer_valgrind_tracer/`** - Visualizing stack and heap memory, analyzing pointer aliasing and object lifetimes, detecting memory errors with Valgrind, and investigating segmentation faults through structured crash reports.
 - **`argc_argv/`** - Working with command-line arguments using argc and argv, processing input parameters, performing arithmetic operations, and calculating the minimum number of coins for change.
 - **`benchmarking/`** - Measuring C program execution time, comparing algorithm performance, profiling individual processing phases, and analyzing runtime efficiency.
+- **`dynamic_analysis/`** - Debugging C programs using GDB and VS Code, setting breakpoints, inspecting variables at runtime, tracing execution flow, and extracting memory values.
 - **`function_pointers/`** - Working with function pointers, callbacks, array iteration, function selection, and implementing a command-line calculator using function pointers.
 - **`functions_nested_loops/`** - Function declarations and definitions, nested loops, character manipulation, arithmetic operations, and custom header files.
 - **`hello_world/`** - Introduction to C programming, GCC compilation, preprocessing, basic input/output, and coding style.
